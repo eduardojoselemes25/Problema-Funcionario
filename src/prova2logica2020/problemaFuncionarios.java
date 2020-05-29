@@ -32,6 +32,9 @@ public class problemaFuncionarios {
 		soma = horasTrabalhadas * valorHora;
 		custoTotal += soma;
 
+		double custoMaior = soma;
+		String quemGanhouMais = nome;
+
 		System.out.print("Digitar outro (S/N)? ");
 		String resp = sc.next();
 		while (resp.equals("S") == false && resp.equals("N") == false) {
@@ -57,7 +60,12 @@ public class problemaFuncionarios {
 			soma = horasTrabalhadas * valorHora;
 			custoTotal += soma;
 
-			System.out.print("Digitar outro (S/N)? ");
+			if (custoMaior < soma) {
+				custoMaior = soma;
+				quemGanhouMais = nome;
+			}
+
+			System.out.print("Digite S ou N: ");
 			resp = sc.next();
 			while (resp.equals("S") == false && resp.equals("N") == false) {
 				System.out.print("Digite S ou N Maiúsculo: ");
@@ -100,6 +108,10 @@ public class problemaFuncionarios {
 			} else if (opcao == 2) {
 				System.out.println();
 				System.out.printf("Custo total = R$ %.2f%n", custoTotal);
+				System.out.println();
+			} else if (opcao == 3) {
+				System.out.println();
+				System.out.println("Pessoa que ganhou mais: " + quemGanhouMais);
 				System.out.println();
 			} else {
 				System.out.println();
